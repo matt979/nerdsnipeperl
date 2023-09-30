@@ -8,7 +8,8 @@ sub main {
 
 sub to_factoriadic {
 	my ($remainder, $partial) = @_;
-	die($remainder ." is less than zero") if($remainder < 0);
+	die("Because the input must be a non-negative integer, it must consist entirely of digits") unless($remainder =~ m/^\d+$/);
+	die($remainder ." must be zero or greater") if($remainder < 0);
 	die("Numbers bigger than 36287999 are illegal") if($remainder > 36287999);
 	return ($partial + $remainder) if($remainder < 2);
 	
